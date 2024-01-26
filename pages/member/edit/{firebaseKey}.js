@@ -11,6 +11,7 @@ export default function EditMember() {
 
   // TODO: make a call to the API to get the book data
   useEffect(() => {
+    console.warn('Firebase Key:', firebaseKey);
     getSingleMember(firebaseKey).then(setEditItem);
   }, [firebaseKey]);
 
