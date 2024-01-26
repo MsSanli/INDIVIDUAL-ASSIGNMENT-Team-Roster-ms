@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteSingleMember } from '../api/memberData';
 
-function MembCard({ memberObj, onUpdate }) {
+function Memb({ memberObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE AUTHOR AND HAVE THE VIEW RERENDER,
   // SO WE PASS THE FUNCTION FROM THE PARENT THAT GETS THE MEMBER
   const deleteThisMemb = () => {
@@ -16,7 +15,7 @@ function MembCard({ memberObj, onUpdate }) {
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={memberObj.image} style={{ height: '400px' }} />
+      <Card.Img variant="top" src={memberObj.image} alt={memberObj.name} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
         <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
@@ -30,7 +29,7 @@ function MembCard({ memberObj, onUpdate }) {
   );
 }
 
-MembCard.propTypes = {
+Memb.propTypes = {
   memberObj: PropTypes.shape({
     firebaseKey: PropTypes.string,
     image: PropTypes.string,
@@ -41,4 +40,4 @@ MembCard.propTypes = {
   onUpdate: PropTypes.func.isRequired,
 };
 
-export default MembCard;
+export default Memb;
