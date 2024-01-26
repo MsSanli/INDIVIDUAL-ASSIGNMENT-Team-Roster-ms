@@ -80,5 +80,4 @@ export {
   getSingleMember,
   deleteSingleMember,
   updateMember,
-  // searchMember,
 };

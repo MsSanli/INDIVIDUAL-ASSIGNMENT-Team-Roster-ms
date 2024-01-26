@@ -19,11 +19,7 @@ function MembCard({ memberObj, onUpdate }) {
       <Card.Img variant="top" src={memberObj.image} style={{ height: '400px' }} />
       <Card.Body>
         <Card.Title>{memberObj.name}</Card.Title>
-        {/* author email? */}
-        <Link href={`/members/${memberObj.firebaseKey}`} passHref>
-          <Button variant="primary" className="m-2">VIEW</Button>
-        </Link>
-        <Link href={`/members/edit/${memberObj.firebaseKey}`} passHref>
+        <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
         <Button variant="danger" onClick={deleteThisMemb} className="m-2">
@@ -36,10 +32,10 @@ function MembCard({ memberObj, onUpdate }) {
 
 MembCard.propTypes = {
   memberObj: PropTypes.shape({
+    firebaseKey: PropTypes.string,
     image: PropTypes.string,
     name: PropTypes.string,
     role: PropTypes.string,
-    firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
