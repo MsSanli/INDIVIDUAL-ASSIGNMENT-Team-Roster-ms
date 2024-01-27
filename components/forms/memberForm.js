@@ -54,15 +54,15 @@ function MemberForm({ obj }) {
         <Form.Control
           type="text"
           placeholder="Enter Kitty Name"
-          name="cat_name"
-          value={formInput.cat_name}
+          name="name"
+          value={formInput.name}
           onChange={handleChange}
           required
         />
       </FloatingLabel>
 
       {/* IMAGE INPUT  */}
-      <FloatingLabel controlId="floatingInput2" label="Member Image" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="image" className="mb-3">
         <Form.Control
           type="url"
           placeholder="Upload image of 97 alter egos"
@@ -94,7 +94,7 @@ function MemberForm({ obj }) {
 MemberForm.propTypes = {
   obj: PropTypes.shape({
     // eslint-disable-next-line react/no-typos
-    name: PropTypes.cat_name,
+    name: PropTypes.string,
     image: PropTypes.string,
     role: PropTypes.string,
     firebaseKey: PropTypes.string,

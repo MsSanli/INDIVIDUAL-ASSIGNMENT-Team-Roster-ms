@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Card, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import { deleteSingleMember } from '../api/memberData';
 
@@ -15,18 +14,21 @@ function MembCard({ memberObj, onUpdate }) {
   };
 
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Img variant="top" src={memberObj.image} style={{ height: '400px' }} />
-      <Card.Body>
-        <Card.Title>{memberObj.name}</Card.Title>
-        <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
-          <Button variant="info">EDIT</Button>
-        </Link>
-        <Button variant="danger" onClick={deleteThisMemb} className="m-2">
-          DELETE
-        </Button>
-      </Card.Body>
-    </Card>
+    <div>
+      <Card style={{ width: '18rem', margin: '10px' }}>
+        <Card.Img variant="top" src={memberObj.image} alt={memberObj.name} style={{ height: '350px' }} />
+        <Card.Body>
+          <Card.Title>{memberObj.name}</Card.Title>
+          <p>{memberObj.role}</p>
+          <Link href={`/member/edit/${memberObj.firebaseKey}`} passHref>
+            <Button variant="info">EDIT</Button>
+          </Link>
+          <Button variant="danger" onClick={deleteThisMemb} className="m-2">
+            DELETE
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
